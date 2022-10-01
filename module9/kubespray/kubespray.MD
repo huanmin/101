@@ -106,11 +106,26 @@ docker cp ansible.cfg kubespray:/kubespray/ansible.cfg
 
 ansible-playbook -i inventory/mycluster/hosts.yml cluster.yml -b -v \
  --private-key=~/.ssh/id_rsa
+
 ```
 
 ### Troubleshooting
 
 #### Error, the following error cause by slow network in China
+
+```
+"No package matching 'python-apt' is available"
+
+ \roles\kubernetes\preinstall\vars\ubuntu.yml
+ ---
+required_pkgs:
+  - python3-apt
+  - aufs-tools
+  - apt-transport-https
+  - software-properties-common
+  - conntrack
+
+```
 
 ```
 Data could not be sent to remote host \"192.168.34.11\". Make sure this host can be reached over ssh:
