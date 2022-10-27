@@ -16,9 +16,9 @@ spec:
         - name: nginx
           image: nginx
           resources:
-            limits:
+            limits:  #给cgroup用的，限制资源
               memory: 1Gi
               cpu: 1
-            requests:
+            requests: #给调度器用的，分配服务器
               memory: 256Mi
               cpu: 100m
